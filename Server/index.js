@@ -10,7 +10,11 @@ const app = express();
 const port = process.env.PORT || 5000;
 const URI = process.env.MONGO_URI
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://twitter-clone-green-rho.vercel.app',
+  credentials: true, // if you’re using cookies or Authorization headers
+}));
+
 app.use(express.json());
 
 // Connect to MongoDB
